@@ -18,36 +18,36 @@ export default function DisplayContent(props) {
         setUniquePriorityValues([...new Set(props.tickets.map((item) => item.priority))]);
     }, [props.tickets]);
 
-    const groupData = (uniqueValues, value) => {
-        const rows = [];
-        for (let i = 0; i < uniqueValues.length; i++) {
-            const group = props.tickets.filter((item) => {
-                if (value === "status")
-                    return item.status === uniqueValues[i];
-                else if (value === "priority")
-                    return item.priority === uniqueValues[i];
-                else if (value === "user")
-                    return item.userId === uniqueValues[i];
-            });
-
-            let sortedgrp = []
-            if(props.order === "priority"){
-                sortedgrp = group.sort((a,b)=> b.priority-a.priority)
-                console.log("in prio")
-            }
-            else if(props.order === "title"){
-                sortedgrp = group.sort((a,b) => a.title.localeCompare(b.title))
-                console.log(sortedgrp)
-            }
-
-            console.log(sortedgrp)
-            rows.push(group);
-        }
-        setMatrixData(rows);
-        console.log(matrixData);
-    };
-
     useEffect(() => {
+        const groupData = (uniqueValues, value) => {
+            const rows = [];
+            for (let i = 0; i < uniqueValues.length; i++) {
+                const group = props.tickets.filter((item) => {
+                    if (value === "status")
+                        return item.status === uniqueValues[i];
+                    else if (value === "priority")
+                        return item.priority === uniqueValues[i];
+                    else if (value === "user")
+                        return item.userId === uniqueValues[i];
+                    return false;
+                });
+    
+                let sortedgrp = []
+                if(props.order === "priority"){
+                    sortedgrp = group.sort((a,b)=> b.priority-a.priority)
+                    console.log("in prio")
+                }
+                else if(props.order === "title"){
+                    sortedgrp = group.sort((a,b) => a.title.localeCompare(b.title))
+                    console.log(sortedgrp)
+                }
+    
+                console.log(sortedgrp)
+                rows.push(group);
+            }
+            setMatrixData(rows);
+            console.log(matrixData);
+        };
         if (props.group === 'status') {
             groupData(uniqueStatusValues, "status")
             setUniqueValues(uniqueStatusValues)
@@ -60,7 +60,7 @@ export default function DisplayContent(props) {
             groupData(uniquePriorityValues, "priority")
             setUniqueValues(uniquePriorityValues)
         };
-    }, [props.group, uniqueStatusValues, uniqueUserValues, uniquePriorityValues, props.order]);
+    }, [props.group, uniqueStatusValues, uniqueUserValues, uniquePriorityValues, props.order, props.tickets, matrixData]);
 
     return (
         <div>
