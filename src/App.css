@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+*{
+    font-family: 'Lato', sans-serif;
+    background-color: rgb(191, 255, 198); 
+}
+
+body{
+    overflow-x: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(63, 174, 76);
+  }
+  
+body::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
+.display-btn{
+    background-color: rgb(63, 174, 76);
+    color: #ffffff;
+    padding: 10px 15px;
+    border: 1px solid rgb(63, 174, 76);
+    margin-bottom: 20px;
+    font-size: medium;
+    border-radius: 4px;
+}
+
+.dropdown, label, select, option{
+    background-color: #ffffff;
+}
+
+.display-cnt{
+    background-color: #ffffff !important;
+    position: fixed;
+    left: 8px;
+    top: 55px;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    opacity: 0.9;
+}

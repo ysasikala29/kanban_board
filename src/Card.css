@@ -1,0 +1,37 @@
+.card-container {
+    border: 1px solid #ffffff;
+    padding: 20px 10px;
+    width: 300px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    background-color: #ffffff;
+    border-radius: 4px;
+    margin-top: 10px;
+    min-height: 100px;
+  }
+
+  .card-title, .card-container, .flex-1, .content-1-1, .content-1-2, .card-tag{
+    background-color: #ffffff;
+  }
+
+  .card-title {
+    overflow-wrap: break-word !important; /* Ensure that long words wrap */
+    white-space: normal !important; /* Allow whitespace to wrap */
+    /* Optionally, set a max-width to prevent overly long lines */
+    max-width: 100%; /* Adjust the max-width as needed */
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .flex-1{
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 300;
+  }
+
+  .card-tag{
+    border: 1px solid rgba(128, 128, 128, 0.286);
+    padding: 4px 6px;
+  }
